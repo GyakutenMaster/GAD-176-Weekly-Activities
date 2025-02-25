@@ -17,7 +17,7 @@ namespace GAD176.WeeklyActivities.WeekTwo
         {
             // let's rotate our asteroid by our forward direction, 
             // by our rotate speed and our deltatime 
-            transform.Rotate(Vector3.forward);
+            transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
         }
 
         // Call Move and Rotate separately in an Asteroid-specific method

@@ -19,11 +19,14 @@ namespace GAD176.WeeklyActivities.WeekThree
             {
                 // so here lets check if there is a currentWeapon.
                 // if there is let's first unequip it using the Equip function of the Weapon Class.
-                
-                currentEquipedWeapon = value;
+                if (currentEquipedWeapon)
+                {
+                    currentEquipedWeapon.Equip(false);
+                }
                 // now we've set the new weapon
                 // let's make sure we call the equip function of the weapon class.
-                
+                currentEquipedWeapon = value;
+                currentEquipedWeapon.Equip(true);
             }
         }
 
@@ -46,6 +49,7 @@ namespace GAD176.WeeklyActivities.WeekThree
             {
                 // here let's access the current weapon iteration
                 // and call the Equip function of it, but let's hide it rather than showing it.
+                allWeapons[i].Equip(false);
             }
         }
 
@@ -54,10 +58,12 @@ namespace GAD176.WeeklyActivities.WeekThree
             if (Input.GetMouseButtonDown(0))
             {
                 // lets access the current weapon and call the fire function
+                CurrentWeapon.Fire();
             }
             else if (Input.GetMouseButtonDown(1))
             {
                 // lets access the current weapon and call the secondary fire function
+                CurrentWeapon.SecondaryFunction();
             }
             else if (Input.mouseScrollDelta.y > 0)
             {
@@ -69,7 +75,8 @@ namespace GAD176.WeeklyActivities.WeekThree
             }
             else if (Input.GetKeyDown(KeyCode.R))
             {
-                 // lets access the current weapon and call the reload function
+                // lets access the current weapon and call the reload function
+                CurrentWeapon.Reload();
             }
         }
 

@@ -39,9 +39,9 @@ namespace GAD176.WeeklyActivities.WeekTwo
             set
             {
                 // here let's clamp the value coming in, between 0 and the max fuel.
-                currentFuel = value;
+                currentFuel = Mathf.Clamp(value, 0, maxFuel);
                 // let's update our fuel UI with the normalised value of our current fuel and our max fuel.
-                uiManager.InGameUI.UpdateFuel(0); // normalise our fuel amount
+                uiManager.InGameUI.UpdateFuel(CurrentFuel / maxFuel); // normalise our fuel amount
             }
         }
         public bool Thrusting
@@ -77,7 +77,7 @@ namespace GAD176.WeeklyActivities.WeekTwo
                 // NOTE you have 2D rigibody's position meaning vector 2, and a thurster position vector 3.
                 // this means you'll have to convert one to a vector 2, or one to a vector 3.
                 // we can cast vectors just like we did with ints and floats.
-                thrustDirection = Vector2.zero;
+                thrustDirection = ((Vector3)rigidbodyToApplyTo.position) - mainThruster.position;
 
                 // We then want to set our thrust to vertical as it is the main thruster and not a side.
                 currentThrust = verticalThrust;
@@ -90,7 +90,7 @@ namespace GAD176.WeeklyActivities.WeekTwo
                 // NOTE you have 2D rigibody's position meaning vector 2, and a thurster position vector 3.
                 // this means you'll have to convert one to a vector 2, or one to a vector 3.
                 // we can cast vectors just like we did with ints and floats.
-                thrustDirection = Vector2.zero;
+                thrustDirection = ((Vector3)rigidbodyToApplyTo.position) - leftThruster.position;
 
                 currentThrust = horizontalThrust;
                 currentThruster = leftThruster;
@@ -102,7 +102,7 @@ namespace GAD176.WeeklyActivities.WeekTwo
                 // NOTE you have 2D rigibody's position meaning vector 2, and a thurster position vector 3.
                 // this means you'll have to convert one to a vector 2, or one to a vector 3.
                 // we can cast vectors just like we did with ints and floats.
-                thrustDirection = Vector2.zero;
+                thrustDirection = ((Vector3)rigidbodyToApplyTo.position) - rightThruster.position;
 
                 currentThrust = horizontalThrust;
                 currentThruster = rightThruster;
@@ -112,11 +112,11 @@ namespace GAD176.WeeklyActivities.WeekTwo
             LunarLanderGameManager.playerApplyThrust?.Invoke();
             currentThruster.GetComponent<Animator>().SetBool("AllowThrust", true);
 
-            
+
             // so here, we want to access the rigidbody and use the AddForceAtPosition function.
             // this will required the thurstDirection to be normalised, multiplied by the current thrust
             // and pass in the current thrusters position.
-            rigidbodyToApplyTo.AddForceAtPosition(Vector2.zero,Vector2.zero);
+            rigidbodyToApplyTo.AddForceAtPosition(thrustDirection.normalized * currentThrust, currentThruster.position);
         }
 
         public void CancelAnimation(ThrusterTypes thruster)

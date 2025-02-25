@@ -12,14 +12,14 @@ namespace GAD176.WeeklyActivities.WeekThree
         void Start()
         {
             // here lets use a get component and grab the Rigibody attached to the bullet
-            rigid = null;
+            rigid = GetComponent<Rigidbody>();
 
             if (rigid)
             {
                 // here let's set the rigidbody's velocity to 
                 // be the the transform of what this script is attached to and access it's forward direction
                 // we should then multiply this by the bullet speed.
-                rigid.velocity = Vector3.zero;
+                rigid.velocity = transform.forward * bulletSpeed;
             }
         }
     }

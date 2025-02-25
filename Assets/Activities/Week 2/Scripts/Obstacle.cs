@@ -18,7 +18,7 @@ namespace GAD176.WeeklyActivities.WeekTwo
         {
             // lets move our obstacle by vector3.down
             // multiplied by our speed and our delta time.
-            transform.Translate(Vector3.down);
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
         }
     }
 }

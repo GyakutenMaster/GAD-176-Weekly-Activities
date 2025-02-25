@@ -9,7 +9,7 @@ namespace GAD176.WeeklyActivities.WeekThree
         public override void Fire()
         {
             // here let's call the base fire function.
-            
+            base.Fire();
             Debug.Log("Pistol fires semi-automatically.");
         }
 
@@ -17,6 +17,8 @@ namespace GAD176.WeeklyActivities.WeekThree
         {
             // here let's call the secondary function in the base class.
             // then let's call the Reload function also in the base.
+            base.SecondaryFunction();
+            Reload();
         }
     }
 }

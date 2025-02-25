@@ -18,7 +18,7 @@ namespace GAD176.WeeklyActivities.WeekTwo
         private void Start()
         {
             // search the scene for the lander script, then access it's transform and assign it to the transform
-            transformToFollow = null;
+            transformToFollow = FindObjectOfType<Lander>().transform;
         }
 
         // Update is called once per frame
@@ -38,7 +38,7 @@ namespace GAD176.WeeklyActivities.WeekTwo
         private void Track()
         {
             // Lerp the current postion, to the tranform to follows position, by the tracking speed and smooth it by Time.deltaTime
-            cameraPosition = Vector3.zero;
+            cameraPosition = Vector2.Lerp(transform.position, transformToFollow.position, Time.deltaTime * trackingSpeed);
 
             // Set the current position, to the lerp position we just calculated above, however only on the x and y, for z we want to use cameraZDepth
             transform.position = new Vector3(cameraPosition.x, cameraPosition.y, cameraZDepth);

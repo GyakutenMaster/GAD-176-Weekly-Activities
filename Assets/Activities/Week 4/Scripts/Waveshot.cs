@@ -26,26 +26,26 @@ namespace GAD176.WeeklyActivities.WeekFour
         private IEnumerator FireBullets()
         {
             // lets loop through the number of shots.
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < numberOfShots; i++)
             {
 
                 // our time will be our current Time.time multiplied by the frequency.
                 // plus the current iteration we are up to, multiplied by the time between shots.
                 // this determines the x axis pos.
-                float time = 0; 
+                float time = Time.time * frequency + i * timeBetweenShots; // Adjust time to control the wave
 
                 // our y offset will be our amplitude multiplied by Sin of the time.
-                float yOffset =0;
+                float yOffset = amplitude * Mathf.Sin(time);
 
                 // Our x axis will be our amplidue multiplied by sin of our time.
-                float x = 0;
+                float x = amplitude * Mathf.Sin(time);
                 // our y will be our yOffset plus our current iteration multiplied by our vertical offset.
-                float y = 0;
+                float y = yOffset + i * verticalOffset;
 
                 Vector3 offset = new Vector3(x, y, 0f);
 
                 // this will be our firepoint position plus our offset.
-                Vector3 firingPosition = Vector3.zero;
+                Vector3 firingPosition = firePoint.position + offset;
 
                 // Instantiate the bullet at the adjusted position
                 GameObject clone = Instantiate(bulletPrefab, firingPosition, firePoint.rotation);

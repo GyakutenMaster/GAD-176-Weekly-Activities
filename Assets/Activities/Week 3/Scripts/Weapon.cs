@@ -29,6 +29,7 @@ namespace GAD176.WeeklyActivities.WeekThree
             }
             // here if the active bool coming in is true or false
             // set the weapon model to be active or not we can use setActive for that.
+            weaponModel.SetActive(active);
         }
 
         public virtual void Fire()
@@ -37,6 +38,8 @@ namespace GAD176.WeeklyActivities.WeekThree
             {
                 // here let's call the shoot bullet function
                 // lets also take the ammo away from the currentAmmo.
+                ShootBullet();
+                currentAmmo--;
             }
             else
             {
@@ -58,12 +61,12 @@ namespace GAD176.WeeklyActivities.WeekThree
                 // is 10 bullets and I've shot 3 I should only reload the 3.
                 // to do this let's use Mathf Min and we can pass in the ammo
                 // and the other variable should be the value of the clipSize minus the currentAmmo.
-                int ammoToReload = 0;
-                
+                int ammoToReload = Mathf.Min(clipSize - currentAmmo, ammo);
+
                 // here lets add onto the current ammo the amount to reload.
-                
+                currentAmmo += ammoToReload;
                 // then lets take the amount to reload away from the ammo.
-                
+                ammo -= ammoToReload;
 
                 Debug.Log($"Reloaded {ammoToReload} bullets. Remaining ammo: {currentAmmo}");
             }

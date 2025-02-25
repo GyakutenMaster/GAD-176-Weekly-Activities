@@ -31,8 +31,9 @@ namespace GAD176.WeeklyActivities.WeekThree
         public override void SecondaryFunction()
         {
             // here let's call the base scripts secondary function
-
+            base.SecondaryFunction();
             // then let's call the switch fire mode function.
+            SwitchFireMode();
         }
 
         private void SwitchFireMode()
@@ -40,14 +41,24 @@ namespace GAD176.WeeklyActivities.WeekThree
             Debug.Log($"Submachine gun switches to burst fire mode.");
             // here we want to check if it's already burst fire mode, if it is let's sawp it to not being 
             // burst fire, we just need to change the bool's value.
+            isBurstFire = !isBurstFire;
         }
 
         private void FireSingleShot()
         {
-            Debug.Log($"Submachine gun fires a single shot.");
-            
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Destroy(bullet, 5);
+            if (currentAmmo > 0)
+            {
+                Debug.Log($"Submachine gun fires a single shot.");
+
+                // Assuming you have a bullet prefab and fire point assigned in the inspector
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                Destroy(bullet, 5);
+                currentAmmo--;
+            }
+            else
+            {
+                Debug.Log("Out of ammo! Reload before firing.");
+            }
         }
 
         private IEnumerator BurstFire()
@@ -59,7 +70,7 @@ namespace GAD176.WeeklyActivities.WeekThree
                 FireSingleShot();
                 // here' lets use a new wait for seconds and the amount time should be 1 divided by the burst fire rate.
                 // this is effectively 1 second divide by how many bullets should fire.
-                yield return null;
+                yield return new WaitForSeconds(1f / BurstFireRate);
             }
 
             isBurstFiring = false;

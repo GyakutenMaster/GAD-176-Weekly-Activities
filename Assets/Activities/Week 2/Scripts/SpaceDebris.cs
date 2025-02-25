@@ -16,7 +16,9 @@ namespace GAD176.WeeklyActivities.WeekTwo
         public void MoveSpaceDebris()
         {
             // call the Move function from out base class.
+            Move();
             // call our Oscillate function from our script.
+            Oscillate();
         }
 
         // Unique behavior for space debris
@@ -26,9 +28,7 @@ namespace GAD176.WeeklyActivities.WeekTwo
             // to do this we need to multiply our Vector3.right
             // by sin of the current time (Time.time) multiplied by 
             // our oscillate speed
-            Vector3 oscillateVector = Vector3.right;
-
-            transform.Translate(oscillateVector * Time.deltaTime);
+           transform.Translate(Vector3.right * Mathf.Sin(Time.time) * oscillateSpeed * Time.deltaTime);
         }
     }
 }

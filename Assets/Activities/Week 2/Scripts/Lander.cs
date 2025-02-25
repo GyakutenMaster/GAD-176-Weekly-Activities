@@ -87,9 +87,9 @@ namespace GAD176.WeeklyActivities.WeekTwo
         private void SetVelocity()
         {
             // set our previousVelocity to our current velocity.
-            previousVelocity = 0;
+            previousVelocity = CurrentVelocity;
             // set our CurrentVelocity to the magnitude rigibody's velocity
-            CurrentVelocity = 0;
+            CurrentVelocity = m_Rigidbody.velocity.magnitude;
         }
 
 
@@ -101,7 +101,7 @@ namespace GAD176.WeeklyActivities.WeekTwo
         private void CheckLandingDistance()
         {
             // check to see if the distance between the landers position and the landing pad's position is less then the landing distance threshold.
-            if (0 <= 1)
+            if (Vector2.Distance(transform.position, m_landingPad.position) <= landingDistanceThreshold)
             {
                 // We are close enough to deploy our feet.
                 if (m_feetHingeJoint.anchor.y + (Time.deltaTime * feetMovementSpeed) < maxFeetAnchorY)

@@ -18,7 +18,7 @@ namespace GAD176.WeeklyActivities.WeekFour
         // Update is called once per frame
         void Update()
         {
-
+            // I can add specific logic for BurstShot if needed
         }
 
         // Override the Fire method for burst firing
@@ -27,7 +27,7 @@ namespace GAD176.WeeklyActivities.WeekFour
             if (CanFire() && firingRoutine == null)
             {
                 // here lets start call startcoroutine and start the BurstFire routine, and lets store it in the firing routine.
-                firingRoutine = null;
+                firingRoutine = StartCoroutine(BurstFire());
             }
         }
 
@@ -35,15 +35,15 @@ namespace GAD176.WeeklyActivities.WeekFour
         private IEnumerator BurstFire()
         {
             // here lets set the next fire time to be the current time.time plus the firerate.
-            nextFireTime = 0;
-            
-            
+            nextFireTime = Time.time + fireRate;
+
+
             // lets loop for the number of burst fire bullets.
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < burstShotCount; i++)
             {
                 ShootBullet();
                 // here lets yield return new wait for seconds and lets wait the length of the firerate.
-                yield return null;
+                yield return new WaitForSeconds(fireRate);
             }
             firingRoutine = null;
         }

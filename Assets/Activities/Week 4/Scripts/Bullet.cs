@@ -14,7 +14,7 @@ namespace GAD176.WeeklyActivities.WeekFour
             if(GetComponent<Rigidbody>())
             {
                 // lets set the rigidbodies velocity to be the up world vector multiplied by the bullet speed.
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<Rigidbody>().velocity = Vector3.up * bulletSpeed;
             }
         }
 

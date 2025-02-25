@@ -29,13 +29,13 @@ namespace GAD176.WeeklyActivities.WeekFour
                 if (currentEquipedWeapon)
                 {
                     // here lets access the current weapon and call the equip function, but let's unequip the current weapon.
-                  
+                    currentEquipedWeapon.Equip(false);
                 }
                 // here we are setting the current weapon to a new one
                 currentEquipedWeapon = value;
 
                 // then let's equip the newly equiped weapon using the equip function
-               
+                currentEquipedWeapon.Equip(true);
             }
         }
 
@@ -55,17 +55,17 @@ namespace GAD176.WeeklyActivities.WeekFour
             {
                 // here lets calculate the total distance, which will be the y position of the player minus the y position of the end points position.
                 // plus the slider offset to account for the size of the UI element, make sure you use parenthesis around the minus.
-                totalDistance = 0;
+                totalDistance = (transform.position.y - endPoint.position.y) + sliderModelOffset;
             }
 
             // here lets call the UpdateDistance Progress function.
-           
+            UpdateDistanceProgress();
 
             // lets call the unequip all weapons function to hide them all.
-            
+            UnequipAllWeapons();
 
             // then if we have weapons lets equip the first one.
-            if(allWeapons.Count > 0)
+            if (allWeapons.Count > 0)
             {
                 CurrentWeapon = allWeapons[0];
             }        
@@ -83,7 +83,7 @@ namespace GAD176.WeeklyActivities.WeekFour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 // here let's call the fire function of the current weapon equiped.
-                
+                currentEquipedWeapon.Fire();
             }
 
             if(Input.GetKeyDown(KeyCode.X))
@@ -102,7 +102,7 @@ namespace GAD176.WeeklyActivities.WeekFour
             for (int i = 0; i < allWeapons.Count; i++)
             {
                 // here lets access the current element we are up to and call equip, and lets hide it.
-                
+                allWeapons[i].Equip(false);
             }
         }
 
@@ -111,7 +111,7 @@ namespace GAD176.WeeklyActivities.WeekFour
             playerHealth += amount;
 
             // here lets use a mathf clamp to clamp the player healths current value between 0 and the max value.
-            playerHealth = 0;
+            playerHealth = Mathf.Clamp(playerHealth, 0, playerMaxHealth);
 
             if (userInterface)
             {
@@ -130,7 +130,7 @@ namespace GAD176.WeeklyActivities.WeekFour
             {
                 // here lets calculate the current distance, which will be the y position of the player minus the y position of the end points position.
                 // plus the slider offset to account for the size of the UI element, make sure you use parenthesis around the minus.
-                float currentDistance = 0;
+                float currentDistance = transform.position.y - endPoint.position.y + sliderModelOffset;
 
                 userInterface.UpdateProgressSlider(currentDistance, totalDistance);
             }
