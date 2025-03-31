@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef03d7f82a07d864cbc6a2147d6c4944, type: 3}
+  m_Name: Grenade
+  m_EditorClassIdentifier: 
+  weaponName: Grenade
+  weaponModel: {fileID: 1830178033273282363, guid: 5a399456f4f89db49b79d544b5ebd605, type: 3}
+  damage: 0
+  range: 150
+  attackSpeed: 0
+  ammo: 3
+  clipSize: 3
+  currentAmmo: 3
+  hasUnlimitedAmmo: 0
+  weaponSpawnOffSet: {x: 0, y: 0, z: 0}

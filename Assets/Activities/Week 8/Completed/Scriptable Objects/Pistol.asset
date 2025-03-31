@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036971beb7f903045b11b42995220054, type: 3}
+  m_Name: Pistol
+  m_EditorClassIdentifier: 
+  weaponName: Pistol
+  weaponModel: {fileID: 4797351389490314660, guid: c1ab7c1a3249f1e409763a0cb7ea3352, type: 3}
+  damage: 15
+  range: 10
+  attackSpeed: 5
+  ammo: 3
+  clipSize: 5
+  currentAmmo: 12
+  hasUnlimitedAmmo: 0
+  weaponSpawnOffSet: {x: 0, y: 0, z: 0}
