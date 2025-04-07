@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819a020af7ccadf4492c81ebfbe52e7a, type: 3}
+  m_Name: Motor
+  m_EditorClassIdentifier: 
+  speed: 12
+  turnSpeed: 180
+  motorMoveEfffects: {fileID: 11400000, guid: 6ef55dcafa8144e4a8a4c49d49b11a32, type: 2}
+  engineIdleSound: {fileID: 11400000, guid: 640dffa480141b14b96328d2ad49a78f, type: 2}
+  engineMoveSound: {fileID: 11400000, guid: 7e5c6db270f1c53418850e59c627f6ee, type: 2}

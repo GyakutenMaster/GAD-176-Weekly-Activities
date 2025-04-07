@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1d898ca4b45b642a9dff230e704707, type: 3}
+  m_Name: MainGun
+  m_EditorClassIdentifier: 
+  firePointName: FirePoint
+  tankShellPrefab: {fileID: 6863767184128917887, guid: 9bb8d291977c0e54b9a18c363195f6e0, type: 3}
+  minLaunchForce: 15
+  maxLaunchForce: 30
+  maxChargeTime: 0.75
+  mainGunArrowIndicatorPrefab: {fileID: 1638681539788547140, guid: 912357e1125fd6449966ced25d77fe3a, type: 3}
+  chargingEffect: {fileID: 11400000, guid: 928845a34504c8740b239ccd247f3aa7, type: 2}
+  shotFiredEffect: {fileID: 11400000, guid: b67f2b8050b4288458191960dcba8370, type: 2}
