@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5668e9c44e88a4d9eb7c2d44d8a9d8, type: 3}
+  m_Name: TankMotor
+  m_EditorClassIdentifier: 
+  speed: 12
+  turnSpeed: 180
+  motorMoveEfffects: {fileID: 11400000, guid: 6ce61811dcd6e624ea835b3ae6de2842, type: 2}
+  engineIdleSound: {fileID: 11400000, guid: 45baf0e4979ee5f44a34de4d702c7cff, type: 2}
+  engineMoveSound: {fileID: 11400000, guid: 87955837f1d0ff644ba14e71ed53aa0e, type: 2}
